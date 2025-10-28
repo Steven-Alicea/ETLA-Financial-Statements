@@ -83,3 +83,28 @@ def transform_checking_transaction_data(df):
                                      ).apply(lambda x: f"{x:.2f}")
     df["Settlement Date"] = pd.to_datetime(df["Settlement Date"])
     return df
+
+def transform_credit_builder_card_summary_data(df):
+    df["Statement Period"] = df["Statement Period"].astype("string")
+    df["Last Month's Balance"] = pd.to_numeric(df["Last Month's Balance"]
+                                               .str.replace(r'[$,]', '', regex=True)
+                                               ).apply(lambda x: f"{x:.2f}")
+    df["Payments/Credits"] = pd.to_numeric(df["Payments/Credits"]
+                                           .str.replace(r'[$,]', '', regex=True)
+                                           .str.replace(r'(-)$', r'\1', regex=True)
+                                           .str.replace(r'^(.*)-$', r'-\1', regex=True)
+                                           ).apply(lambda x: f"{x:.2f}")
+    df["New Spending"] = pd.to_numeric(df["New Spending"]
+                                       .str.replace(r'[$,]', '', regex=True)
+                                       ).apply(lambda x: f"{x:.2f}")
+    df["Fees"] = pd.to_numeric(df["Fees"]
+                               .str.replace(r'[$,]', '', regex=True)
+                               ).apply(lambda x: f"{x:.2f}")
+    df["New Balance"] = pd.to_numeric(df["New Balance"]
+                                      .str.replace(r'[$,]', '', regex=True)
+                                      ).apply(lambda x: f"{x:.2f}")
+    df["Payment Due Date"] = pd.to_datetime(df["Payment Due Date"], format='%m/%y')
+    df["Total Due"] = pd.to_numeric(df["Total Due"]
+                                    .str.replace(r'[$,]', '', regex=True)
+                                    ).apply(lambda x: f"{x:.2f}")
+    return df
