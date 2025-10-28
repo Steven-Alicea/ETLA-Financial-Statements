@@ -281,3 +281,5 @@ src/etl/extract/__pycache__/__init__.cpython-313.pyc
 src/etl/extract/__pycache__/extract.cpython-313.pyc
 data/processed/Chime/Chime Checking Transactions.csv
 src/etl/transform/__pycache__/transform_chime.cpython-313.pyc
+src/etl/extract/__pycache__/extract_chime.cpython-313.pyc
+data/processed/Chime/Chime Checking Summaries.csv
