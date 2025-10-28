@@ -285,3 +285,4 @@ src/etl/extract/__pycache__/extract_chime.cpython-313.pyc
 data/processed/Chime/Chime Checking Summaries.csv
 data/processed/Chime/Chime Credit Builder Card Summaries.csv
 data/processed/Chime/Chime Credit Builder Card Transactions.csv
+data/processed/Chime/Chime Credit Builder Secured Summaries.csv
