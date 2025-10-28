@@ -109,6 +109,24 @@ def transform_credit_builder_card_summary_data(df):
                                     ).apply(lambda x: f"{x:.2f}")
     return df
 
+def transform_credit_builder_secured_summary_data(df):
+    df["Statement Period"] = df["Statement Period"].astype("string")
+    df["Beginning Balance"] = pd.to_numeric(df["Beginning Balance"]
+                                            .str.replace(r'[$,]', '', regex=True)
+                                            ).apply(lambda x: f"{x:.2f}")
+    df["Deposits"] = pd.to_numeric(df["Deposits"]
+                                   .str.replace(r'[$,]', '', regex=True)
+                                   ).apply(lambda x: f"{x:.2f}")
+    df["Transfers"] = pd.to_numeric(df["Transfers"]
+                                    .str.replace(r'[$,]', '', regex=True)
+                                    .str.replace(r'(-)$', r'\1', regex=True)
+                                    .str.replace(r'^(.*)-$', r'-\1', regex=True)
+                                    ).apply(lambda x: f"{x:.2f}")
+    df["Ending Balance"] = pd.to_numeric(df["Ending Balance"]
+                                         .str.replace(r'[$,]', '', regex=True)
+                                         ).apply(lambda x: f"{x:.2f}")
+    return df
+
 def transform_credit_builder_transaction_data(df):
     df["Statement Period"] = df["Statement Period"].astype("string")
     df["Transaction Date"] = pd.to_datetime(df["Transaction Date"])
