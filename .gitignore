@@ -269,3 +269,13 @@ data/raw/NFCU/Savings/2023/Transactions/tabula-2023-04-24_STMSSCM.csv
 .DS_Store
 test.py
 todo.txt
+src/globals/__pycache__/__init__.cpython-313.pyc
+src/globals/__pycache__/functions.cpython-313.pyc
+src/globals/__pycache__/variables.cpython-313.pyc
+src/etl/transform/__pycache__/__init__.cpython-313.pyc
+src/etl/transform/__pycache__/transform.cpython-313.pyc
+src/etl/__pycache__/__init__.cpython-313.pyc
+src/etl/load/__pycache__/__init__.cpython-313.pyc
+src/etl/load/__pycache__/load.cpython-313.pyc
+src/etl/extract/__pycache__/__init__.cpython-313.pyc
+src/etl/extract/__pycache__/extract.cpython-313.pyc
