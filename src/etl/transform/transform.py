@@ -2,6 +2,9 @@ import pandas as pd
 
 
 
+def combine_dataframes(dataframes):
+    return pd.concat(dataframes, ignore_index=True)
+
 def convert_dataframe_to_string(df):
     df = df.astype("string")
     return df
