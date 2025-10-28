@@ -12,7 +12,7 @@ target_directory = f"data/processed/Chime"
 target_file = "Chime Credit Builder Secured Summaries.csv"
 
 
-def etl_chime_credit_builder_secured_summary(start_year, end_year):
+def etl_chime_credit_builder_secured_summaries(start_year, end_year):
     csv_files = []
     dataframes = []
     for i in range(start_year, end_year + 1):
@@ -33,8 +33,9 @@ def etl_chime_credit_builder_secured_summary(start_year, end_year):
 
 
 def main():
-    etl_chime_credit_builder_secured_summary(2022, 2023)
+    etl_chime_credit_builder_secured_summaries(2022, 2023)
 
 
 if __name__ == '__main__':
     main()
+    
