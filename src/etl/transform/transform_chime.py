@@ -108,3 +108,15 @@ def transform_credit_builder_card_summary_data(df):
                                     .str.replace(r'[$,]', '', regex=True)
                                     ).apply(lambda x: f"{x:.2f}")
     return df
+
+def transform_credit_builder_transaction_data(df):
+    df["Statement Period"] = df["Statement Period"].astype("string")
+    df["Transaction Date"] = pd.to_datetime(df["Transaction Date"])
+    df["Description"] = df["Description"].astype("string")
+    df["Amount"] = pd.to_numeric(df["Amount"]
+                                 .str.replace(r'[$,]', '', regex=True)
+                                 .str.replace(r'(-)$', r'\1', regex=True)
+                                 .str.replace(r'^(.*)-$', r'-\1', regex=True)
+                                 ).apply(lambda x: f"{x:.2f}")
+    df["Settlement Date"] = pd.to_datetime(df["Settlement Date"])
+    return df
