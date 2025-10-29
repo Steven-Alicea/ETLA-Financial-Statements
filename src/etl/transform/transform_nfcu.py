@@ -84,6 +84,35 @@ def transform_checking_savings_summary_data(df):
                                         ).apply(lambda x: f"{x:.2f}")
     return df
 
+def transform_navcheck_summary_data(df):
+    df["Statement Period"] = df["Statement Period"].astype("string")
+    df["Credit Limit"] = pd.to_numeric(df["Credit Limit"]
+                                       .str.replace('$', '')
+                                       ).apply(lambda x: f"{x:.2f}")
+    df["Outstanding Principal Balance"] = pd.to_numeric(df["Outstanding Principal Balance"]
+                                                        .str.replace('$', '')
+                                                        ).apply(lambda x: f"{x:.2f}")
+    df["Outstanding Interest Charge"] = pd.to_numeric(df["Outstanding Interest Charge"]
+                                                      .str.replace('$', '')
+                                                      ).apply(lambda x: f"{x:.2f}")
+    df["Outstanding Fees"] = pd.to_numeric(df["Outstanding Fees"]
+                                           .str.replace('$', '')
+                                           ).apply(lambda x: f"{x:.2f}")
+    df["Total Outstanding Balance"] = pd.to_numeric(df["Total Outstanding Balance"]
+                                                    .str.replace('$', '')
+                                                    ).apply(lambda x: f"{x:.2f}")
+    df["Available Credit"] = pd.to_numeric(df["Available Credit"]
+                                           .str.replace('$', '')
+                                           ).apply(lambda x: f"{x:.2f}")
+    df["Miniumum Amount Due"] = pd.to_numeric(df["Miniumum Amount Due"]
+                                              .str.replace('$', '')
+                                              ).apply(lambda x: f"{x:.2f}")
+    df["Past Due Amount"] = pd.to_numeric(df["Past Due Amount"]
+                                          .str.replace('$', '')
+                                          ).apply(lambda x: f"{x:.2f}")
+    df["Payment Due Date"] = pd.to_datetime(df["Payment Due Date"], format='%m-%d-%y', errors='coerce')
+    return df
+
 def transform_navcheck_transaction_data(df):
     df["Statement Period"] = df["Statement Period"].astype("string")
     df["Transaction Date"] = pd.to_datetime(df["Transaction Date"])
