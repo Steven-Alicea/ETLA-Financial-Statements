@@ -20,7 +20,7 @@ target_directory = f"data/processed/NFCU"
 target_file = "NFCU Navcheck Summaries.csv"
 
 
-def etl_nfcu_navcheck_summary(start_year, end_year):
+def etl_nfcu_navcheck_summaries(start_year, end_year):
     csv_files = []
     dataframes = []
     for i in range(start_year, end_year + 1):
@@ -42,7 +42,7 @@ def etl_nfcu_navcheck_summary(start_year, end_year):
 
 
 def main():
-    etl_nfcu_navcheck_summary(2021, 2023)
+    etl_nfcu_navcheck_summaries(2021, 2023)
 
 
 if __name__ == '__main__':
