@@ -147,6 +147,16 @@ def transform_navcheck_transaction_data(df):
                                   ).apply(lambda x: f"{x:.2f}")
     return df
 
+def transform_credit_payments_credits(df):
+    df["Statement Period"] = df["Statement Period"].astype("string")
+    df["Transaction Date"] = pd.to_datetime(df["Transaction Date"], format='%m/%d/%y')
+    df["Post Date"] = pd.to_datetime(df["Post Date"], format='%m/%d/%y')    
+    df["Description"] = df["Description"].astype("string")
+    df["Amount"] = pd.to_numeric(df["Amount"]
+                                 .str.replace(r'[$,]', '', regex=True)
+                                 ).apply(lambda x: f"{x:.2f}")
+    return df
+
 def transform_credit_summary_data(df):
     df["Statement Period"] = df["Statement Period"].astype("string")
     df["Previous Balance"] = pd.to_numeric(df["Previous Balance"]
