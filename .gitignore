@@ -297,3 +297,5 @@ data/processed/NFCU/NFCU Savings Summaries.csv
 data/processed/NFCU/NFCU Navcheck Summaries.csv
 data/processed/NFCU/NFCU Credit Summaries.csv
 data/processed/NFCU/NFCU Credit Payments and Credits.csv
+src/analysis/__pycache__/__init__.cpython-313.pyc
+src/analysis/__pycache__/format_dataframes.cpython-313.pyc
