@@ -3,6 +3,10 @@ import pandas as pd
 from src.globals.variables import months_dict
 
 
+
+def drop_first_row(df):
+    return df.drop(df.index[0])
+
 def correct_mismatch_rows(df): 
     for i in range(len(df)):
         if df.isnull().iloc[i, 0]:
@@ -55,6 +59,29 @@ def transform_checking_savings_transaction_data(df):
                                   .str.replace(r'(-)$', r'\1', regex=True)
                                   .str.replace(r'^(.*)-$', r'-\1', regex=True)
                                   ).apply(lambda x: f"{x:.2f}")
+    return df
+
+def transform_checking_savings_summary_data(df):
+    df["Statement Period"] = df["Statement Period"].astype("string")
+    df["Previous Balance"] = pd.to_numeric(df["Previous Balance"]
+                                           .str.replace(r'[$,]', '', regex=True)
+                                           .str.replace(r'(-)$', r'\1', regex=True)
+                                           .str.replace(r'^(.*)-$', r'-\1', regex=True)
+                                           ).apply(lambda x: f"{x:.2f}")
+    df["Deposits"] = pd.to_numeric(df["Deposits"]
+                                   .str.replace(r'[$,]', '', regex=True)
+                                   ).apply(lambda x: f"{x:.2f}")
+    df["Withdrawals"] = pd.to_numeric(df["Withdrawals"]
+                                      .str.replace(r'[$,]', '', regex=True)
+                                      ).apply(lambda x: f"{x:.2f}")
+    df["Ending Balance"] = pd.to_numeric(df["Ending Balance"]
+                                         .str.replace(r'[$,]', '', regex=True)
+                                         .str.replace(r'(-)$', r'\1', regex=True)
+                                         .str.replace(r'^(.*)-$', r'-\1', regex=True)
+                                         ).apply(lambda x: f"{x:.2f}")
+    df["YTD Dividends"] = pd.to_numeric(df["YTD Dividends"]
+                                        .str.replace(r'[$,]', '', regex=True)
+                                        ).apply(lambda x: f"{x:.2f}")
     return df
 
 def transform_navcheck_transaction_data(df):
