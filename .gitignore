@@ -291,3 +291,4 @@ src/etl/transform/__pycache__/transform_nfcu.cpython-313.pyc
 data/processed/NFCU/NFCU Checking Transactions.csv
 data/processed/NFCU/NFCU Savings Transactions.csv
 data/processed/NFCU/NFCU Navcheck Transactions.csv
+data/processed/NFCU/NFCU Credit Transactions.csv
