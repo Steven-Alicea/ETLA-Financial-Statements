@@ -57,17 +57,30 @@ def transform_checking_savings_transaction_data(df):
                                   ).apply(lambda x: f"{x:.2f}")
     return df
 
-def transform_checking_savings_transaction_data(df):
+def transform_navcheck_transaction_data(df):
     df["Statement Period"] = df["Statement Period"].astype("string")
     df["Transaction Date"] = pd.to_datetime(df["Transaction Date"])
     df["Description"] = df["Description"].astype("string")
     df["Amount"] = pd.to_numeric(df["Amount"]
-                                 .str.replace(r'[$,]', '', regex=True)
-                                 .str.replace(r'(-)$', r'\1', regex=True)
-                                 .str.replace(r'^(.*)-$', r'-\1', regex=True)
+                                 .str.replace(',', '')
                                  ).apply(lambda x: f"{x:.2f}")
+    df["Fees"] = pd.to_numeric(df["Fees"]
+                               .str.replace(r'[ ,]', '', regex=True)
+                               .str.replace(r'(-)$', r'\1', regex=True)
+                               .str.replace(r'^(.*)-$', r'-\1', regex=True)
+                               ).apply(lambda x: f"{x:.2f}")
+    df["Interest"] = pd.to_numeric(df["Interest"]
+                                   .str.replace(r'[ ,]', '', regex=True)
+                                   .str.replace(r'(-)$', r'\1', regex=True)
+                                   .str.replace(r'^(.*)-$', r'-\1', regex=True)
+                                     ).apply(lambda x: f"{x:.2f}")
+    df["Principal"] = pd.to_numeric(df["Principal"]
+                                    .str.replace(r'[ ,]', '', regex=True)
+                                    .str.replace(r'(-)$', r'\1', regex=True)
+                                    .str.replace(r'^(.*)-$', r'-\1', regex=True)
+                                    ).apply(lambda x: f"{x:.2f}")
     df["Balance"] = pd.to_numeric(df["Balance"]
-                                  .str.replace(r'[$,]', '', regex=True)
+                                  .str.replace(r'[ ,]', '', regex=True)
                                   .str.replace(r'(-)$', r'\1', regex=True)
                                   .str.replace(r'^(.*)-$', r'-\1', regex=True)
                                   ).apply(lambda x: f"{x:.2f}")
