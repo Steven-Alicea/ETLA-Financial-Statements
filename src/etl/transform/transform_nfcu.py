@@ -19,11 +19,6 @@ def correct_mismatch_rows(df):
     df = df.dropna(subset=["Transaction Date"])
     return df
 
-def correct_none_values(df):
-    df.loc[df["Available Credit"] == "NONE", "Available Credit"] = '0.00'
-    df.loc[df["Minimum Payment Due"] == "NONE", "Minimum Payment Due"] = '0.00'
-    return df
-
 def add_year_to_transaction_date_column(df, file):
     file = file.split('-')
     year = int(file[1])
@@ -158,6 +153,8 @@ def transform_credit_payments_credits(df):
     return df
 
 def transform_credit_summary_data(df):
+    df.loc[df["Available Credit"] == "NONE", "Available Credit"] = '0.00'
+    df.loc[df["Minimum Payment Due"] == "NONE", "Minimum Payment Due"] = '0.00'
     df["Statement Period"] = df["Statement Period"].astype("string")
     df["Previous Balance"] = pd.to_numeric(df["Previous Balance"]
                                            .str.replace(r'[$,]', '', regex=True)

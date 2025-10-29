@@ -1,7 +1,7 @@
 from src.globals.functions import *
 from src.etl.extract.extract import extract_from_csv_without_header
 from src.etl.transform.transform import transpose_dataframe, convert_dataframe_to_string, rename_columns, combine_dataframes
-from src.etl.transform.transform_nfcu import add_statement_period_to_dataframe, correct_none_values, transform_credit_summary_data
+from src.etl.transform.transform_nfcu import add_statement_period_to_dataframe, transform_credit_summary_data
 from src.etl.load.load import load_to_csv
 
 
@@ -40,7 +40,6 @@ def etl_nfcu_credit_summaries(start_year, end_year):
         df = transpose_dataframe(df)
         df = convert_dataframe_to_string(df)
         df = rename_columns(df, column_names)
-        df = correct_none_values(df)
         df = add_statement_period_to_dataframe(df, file.name)
         df = transform_credit_summary_data(df)
         dataframes.append(df)
