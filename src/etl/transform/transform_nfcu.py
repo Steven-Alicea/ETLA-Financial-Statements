@@ -114,6 +114,7 @@ def transform_navcheck_summary_data(df):
     return df
 
 def transform_navcheck_transaction_data(df):
+    df[["Fees", "Interest", "Principal"]] = df[["Fees", "Interest", "Principal"]].fillna('0.00')
     df["Statement Period"] = df["Statement Period"].astype("string")
     df["Transaction Date"] = pd.to_datetime(df["Transaction Date"])
     df["Description"] = df["Description"].astype("string")
