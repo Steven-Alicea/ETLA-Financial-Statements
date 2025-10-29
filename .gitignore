@@ -287,3 +287,5 @@ data/processed/Chime/Chime Credit Builder Card Summaries.csv
 data/processed/Chime/Chime Credit Builder Card Transactions.csv
 data/processed/Chime/Chime Credit Builder Secured Summaries.csv
 data/processed/Chime/Chime Credit Builder Secured Transactions.csv
+src/etl/transform/__pycache__/transform_nfcu.cpython-313.pyc
+data/processed/NFCU/NFCU Checking Transactions.csv
