@@ -19,6 +19,11 @@ def correct_mismatch_rows(df):
     df = df.dropna(subset=["Transaction Date"])
     return df
 
+def correct_none_values(df):
+    df.loc[df["Available Credit"] == "NONE", "Available Credit"] = '0.00'
+    df.loc[df["Minimum Payment Due"] == "NONE", "Minimum Payment Due"] = '0.00'
+    return df
+
 def add_year_to_transaction_date_column(df, file):
     file = file.split('-')
     year = int(file[1])
@@ -140,6 +145,60 @@ def transform_navcheck_transaction_data(df):
                                   .str.replace(r'(-)$', r'\1', regex=True)
                                   .str.replace(r'^(.*)-$', r'-\1', regex=True)
                                   ).apply(lambda x: f"{x:.2f}")
+    return df
+
+def transform_credit_summary_data(df):
+    df["Statement Period"] = df["Statement Period"].astype("string")
+    df["Previous Balance"] = pd.to_numeric(df["Previous Balance"]
+                                           .str.replace(r'[$,]', '', regex=True)
+                                           ).apply(lambda x: f"{x:.2f}")
+    df["Payments"] = pd.to_numeric(df["Payments"]
+                                   .str.replace(r'[$,]', '', regex=True)
+                                   ).apply(lambda x: f"{x:.2f}")
+    df["Other Credits"] = pd.to_numeric(df["Other Credits"]
+                                        .str.replace(r'[$,]', '', regex=True)
+                                        ).apply(lambda x: f"{x:.2f}")
+    df["Purchases"] = pd.to_numeric(df["Purchases"]
+                                    .str.replace(r'[$,]', '', regex=True)
+                                    ).apply(lambda x: f"{x:.2f}")
+    df["Cash Advances"] = pd.to_numeric(df["Cash Advances"]
+                                        .str.replace(r'[$,]', '', regex=True)
+                                        ).apply(lambda x: f"{x:.2f}")
+    df["Fees Charged"] = pd.to_numeric(df["Fees Charged"]
+                                       .str.replace(r'[$,]', '', regex=True)
+                                       ).apply(lambda x: f"{x:.2f}")
+    df["Interest Charged"] = pd.to_numeric(df["Interest Charged"]
+                                      .str.replace(r'[$,]', '', regex=True)
+                                      ).apply(lambda x: f"{x:.2f}")
+    df["New Balance"] = pd.to_numeric(df["New Balance"]
+                                      .str.replace(r'[$,]', '', regex=True)
+                                      ).apply(lambda x: f"{x:.2f}")
+    df["Past Due Amount"] = pd.to_numeric(df["Past Due Amount"]
+                                          .str.replace(r'[$,]', '', regex=True)
+                                          ).apply(lambda x: f"{x:.2f}")
+    df["Over Limit Amount"] = pd.to_numeric(df["Over Limit Amount"]
+                                            .str.replace(r'[$,]', '', regex=True)
+                                            ).apply(lambda x: f"{x:.2f}")
+    df["Credit Limit"] = pd.to_numeric(df["Credit Limit"]
+                                       .str.replace(r'[$,]', '', regex=True)
+                                       ).apply(lambda x: f"{x:.2f}")
+    df["Available Credit"] = pd.to_numeric(df["Available Credit"]
+                                           .str.replace(r'[$,]', '', regex=True)
+                                           ).apply(lambda x: f"{x:.2f}")
+    df["Cash Limit"] = pd.to_numeric(df["Cash Limit"]
+                                     .str.replace(r'[$,]', '', regex=True)
+                                     ).apply(lambda x: f"{x:.2f}")
+    df["Available Cash"] = pd.to_numeric(df["Available Cash"]
+                                         .str.replace(r'[$,]', '', regex=True)
+                                         ).apply(lambda x: f"{x:.2f}")
+    df["Statement Closing Date"] = pd.to_datetime(df["Statement Closing Date"])
+    df["Days in Billing Cycle"] = pd.to_numeric(df["Days in Billing Cycle"]
+                                                .str.replace(r'[$,]', '', regex=True)
+                                                ).apply(lambda x: f"{x:.2f}")
+    df["Minimum Payment Due"] = pd.to_numeric(df["Minimum Payment Due"]
+                                              .str.replace(r'[$,]', '', regex=True)
+                                              ).apply(lambda x: f"{x:.2f}")
+    df["Payment Due Date"] = pd.to_datetime(df["Payment Due Date"])
     return df
 
 def transform_credit_transaction_data(df):
