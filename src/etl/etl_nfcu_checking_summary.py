@@ -15,14 +15,14 @@ def etl_nfcu_checking_summary(start_year, end_year):
     for i in range(start_year, end_year + 1):
         csv_directory = (f"data/raw/NFCU/Checking/{i}/Summary")
         csv_files.extend(get_sorted_csv_files(csv_directory))
-        for file in csv_files:
-            df = extract_from_csv(file)
-            df = convert_dataframe_to_string(df)
-            df = rename_columns(df, column_names)
-            df = drop_first_row(df)
-            df = add_statement_period_to_dataframe(df, file.name)
-            df = transform_checking_savings_summary_data(df)
-            dataframes.append(df)
+    for file in csv_files:
+        df = extract_from_csv(file)
+        df = convert_dataframe_to_string(df)
+        df = rename_columns(df, column_names)
+        df = drop_first_row(df)
+        df = add_statement_period_to_dataframe(df, file.name)
+        df = transform_checking_savings_summary_data(df)
+        dataframes.append(df)
     combined_df = combine_dataframes(dataframes)
     print(combined_df)
     create_directory(target_directory)
