@@ -4,10 +4,13 @@ from src.etl.transform.transform import convert_dataframe_to_string, rename_colu
 from src.etl.transform.transform_nfcu import drop_first_row, add_statement_period_to_dataframe, transform_checking_savings_summary_data
 from src.etl.load.load import load_to_csv
 
+
+
 column_names = ["Previous Balance", "Deposits", "Withdrawals", "Ending Balance", "YTD Dividends"]
 
 target_directory = f"data/processed/NFCU"
 target_file = "NFCU Checking Summaries.csv"
+
 
 def etl_nfcu_checking_summary(start_year, end_year):
     csv_files = []
