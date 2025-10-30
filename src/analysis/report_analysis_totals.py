@@ -25,6 +25,6 @@ def generate_totals_csv_report(df, title):
     file_name = f"{title}.csv"
     create_directory(target_directory)
     csv_file = join_directory_and_file(target_directory, file_name)
-    load_to_csv(csv_file, df)
+    load_to_csv(df, csv_file)
     write_totals_to_csv(csv_file, count_total, amount_total)
     print(f"Report: {csv_file}")
