@@ -1,3 +1,7 @@
+def print_analysis(df, title):
+    print(title)
+    print(df)
+
 # create function to check the input format for dates 
 #(yyyy-mm-dd | mm/dd/yyyy | jan dd, yyyy | jan d, yyyy | january dd, yyyy | january d, yyyy)
 def rename_title_for_dates(title, start_date, end_date):

@@ -2,10 +2,6 @@ from src.analysis.helpers import *
 
 
 
-def print_analysis(df, title):
-    print(title)
-    print(df)
-
 def get_transactions_for_exact_amount(df, amount):
     title = f"Transactions for {amount}"
     df =  df[(df["Amount"] == amount)]
