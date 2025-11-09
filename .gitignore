@@ -299,3 +299,26 @@ data/processed/NFCU/NFCU Credit Summaries.csv
 data/processed/NFCU/NFCU Credit Payments and Credits.csv
 src/analysis/__pycache__/__init__.cpython-313.pyc
 src/analysis/__pycache__/format_dataframes.cpython-313.pyc
+src/personal_identifying_information.py
+src/__pycache__/personal_identifying_information.cpython-313.pyc
+src/analysis/__pycache__/analyze_chime.cpython-313.pyc
+src/analysis/__pycache__/analyze_helpers.cpython-313.pyc
+src/analysis/__pycache__/analyze_nfcu.cpython-313.pyc
+src/analysis/__pycache__/analyze.cpython-313.pyc
+src/analysis/__pycache__/get_csv_dataframes.cpython-313.pyc
+src/analysis/__pycache__/get_csv_report_dataframe.cpython-313.pyc
+src/analysis/__pycache__/helpers.cpython-313.pyc
+src/analysis/__pycache__/report_analysis_totals.cpython-313.pyc
+src/analysis/__pycache__/report_helpers.cpython-313.pyc
+src/analysis/__pycache__/transfers_visualization.cpython-313.pyc
+data/reports/Chime Checking Transfers From Erica Totals.csv
+data/reports/Chime Checking Transfers To Erica Totals.csv
+data/reports/NFCU Checking Transfers From Erica Totals.csv
+data/reports/NFCU Checking Transfers To Erica Totals.csv
+data/reports/NFCU Saving Transfers From Erica Totals.csv
+data/reports/NFCU Saving Transfers To Erica Totals.csv
+data/reports/NFCU Zelle Transfers From Michaele Totals.csv
+data/reports/Transfers Combined.csv
+data/visualizations/Bank Account Transfers (Account x Amount).png
+data/visualizations/Bank Account Transfers (Transaction x Amount).png
+data/visualizations/Bank Account Transfers.png
