@@ -3,7 +3,7 @@ from globals.functions import join_directory_and_file
 
 
 
-directory = "reports"
+directory = "data/reports"
 
 
 def get_csv_report(file_name):
