@@ -5,10 +5,12 @@ An ETL pipline and data analysis project for bank and billing statements. Facili
 The intended purpose of this project is to assist in gathering, reporting, and visualizing historical financial transaction data.
 
 ## Dependencies
-This project relies on the following package:
+This project relies on the following packages:
 * pandas (version 2.3.3)
 * matplotlib (version 3.10.7)
 * seaborn (version 0.13.2)
+
+This project relies on the [Tabula](https://tabula.technology/) application for custom data extraction of bank and billing statements.
 
 ## Version History
 * 0.1 (Initial Release)
