@@ -2,6 +2,7 @@ import pandas as pd
 from decimal import Decimal
 
 
+
 # Format Chime Dataframe Funcitons
 def format_chime_checking_summary_dataframe(df):
     decimal_columns = ["Beginning Balance",
@@ -54,6 +55,7 @@ def format_chime_credit_builder_transaction_dataframe(df):
     df["Amount"] = pd.to_numeric(df["Amount"]).apply(lambda x: Decimal(f"{x:.2f}"))
     df["Settlement Date"] = pd.to_datetime(df["Settlement Date"])
     return df
+
 
 # Format NFCU Dataframe Funcitons
 def format_nfcu_checking_savings_summary_dataframe(df):

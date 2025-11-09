@@ -34,6 +34,7 @@ def get_chime_credit_builder_secured_transactions():
     df = format_chime_credit_builder_transaction_dataframe(df)
     return df
 
+
 # Get NFCU Dataframe Funcitons
 def get_nfcu_checking_summaries():
     df = pd.read_csv("data/processed/NFCU/NFCU Checking Summaries.csv")
@@ -83,28 +84,3 @@ def get_nfcu_savings_transactions():
     df = pd.read_csv("data/processed/NFCU/NFCU Savings Transactions.csv")
     df = format_nfcu_checking_savings_tranaction_dataframe(df)
     return df
-
-def main():
-    #test
-    # df = get_chime_checking_summaries()
-    # df = get_chime_checking_transactions()
-    # df = get_chime_credit_builder_card_summaries()
-    # df = get_chime_credit_builder_card_transactions()
-    # df = get_chime_credit_builder_secured_summaries()
-    # df = get_chime_credit_builder_secured_transactions()
-    
-    # df = get_nfcu_checking_summaries()
-    # df = get_nfcu_checking_transactions()
-    # df = get_nfcu_credit_payments_and_credits()
-    # df = get_nfcu_credit_summaries()
-    # df = get_nfcu_credit_transactions()
-    # df = get_nfcu_navcheck_summaries()
-    # df = get_nfcu_navcheck_transactions()
-    # df = get_nfcu_savings_summaries()
-    df = get_nfcu_savings_transactions()
-    print(df.info())
-    print(df)
-
-
-if __name__ == '__main__':
-    main()

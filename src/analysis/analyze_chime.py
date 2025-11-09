@@ -3,7 +3,7 @@ from src.analysis.analyze import print_analysis, get_transactions_for_dates
 
 
 
-def get_chime_checking_account_deposits(df, source=None, start_date=None, end_date=None, output=None):
+def get_chime_checking_account_deposits(df, source=None, start_date=None, end_date=None):
     title = "Chime Checking Account Deposits"
     if source:
         title = title + f" From {source.title()}"
@@ -14,7 +14,6 @@ def get_chime_checking_account_deposits(df, source=None, start_date=None, end_da
     print_analysis(df, title)
     return df
 
- # ensure direction is from or to | # make source_destination=None
 def get_chime_checking_account_transfers(df, direction, source_or_destination, start_date=None, end_date=None):
     title = f"Chime Checking Account Transfers {direction.capitalize()} {source_or_destination.title()}"
     if direction.lower() == "to":
@@ -30,7 +29,6 @@ def get_chime_checking_account_transfers(df, direction, source_or_destination, s
     print_analysis(df, title)
     return df
 
-# ensure account is checking or credit builder card
 def get_chime_purchases(df, purchase_description=None, start_date=None, end_date=None): 
     title = f"Chime Purchases"
     if purchase_description:
@@ -42,7 +40,6 @@ def get_chime_purchases(df, purchase_description=None, start_date=None, end_date
     print_analysis(df, title)
     return df
 
-# ensure account is checking or credit builder card
 def get_chime_withdrawals(df, location=None, start_date=None, end_date=None):  
     title = f"Chime Withdrawals"
     df = df[df["Type"].str.contains("Withdrawal")]

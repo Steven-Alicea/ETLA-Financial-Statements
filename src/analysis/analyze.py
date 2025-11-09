@@ -23,8 +23,6 @@ def get_transactions_on_date(df, date):
     print_analysis(df, title)
     return df
 
-# create function to check the input format for dates 
-# (yyyy-mm-dd | mm/dd/yyyy | jan dd, yyyy | jan d, yyyy | january dd, yyyy | january d, yyyy)
 def get_transactions_for_dates(df, start_date, end_date):
     if start_date and end_date:
         df = df[(df["Transaction Date"] >= start_date) & (df["Transaction Date"] <= end_date)]
