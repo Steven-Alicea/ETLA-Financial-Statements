@@ -1,4 +1,4 @@
-# ETLA Financial Reports
+# ETLA Financial Statements
 An ETL pipline and data analysis project for bank and billing statements. Facilitates bank and billing statement transaction queries, and generates reports and visualizations for historical financial transactions.
 
 ## Purpose
