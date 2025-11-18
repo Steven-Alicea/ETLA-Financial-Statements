@@ -359,3 +359,6 @@ data/processed/Toyota/Toyota Statements.csv
 src/etl/transform/__pycache__/transform_toyota.cpython-313.pyc
 data/raw/Toyota/Transactions/tabula-transaction_history.csv
 data/processed/Toyota/Toyota Transaction History.csv
+data/raw/Wells Fargo Tesla/Tesla Transaction History.csv
+src/etl/transform/__pycache__/transform_wells_fargo_tesla.cpython-313.pyc
+data/processed/Wells Fargo Tesla/Tesla Transaction History.csv
