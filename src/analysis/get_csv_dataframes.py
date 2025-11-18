@@ -84,3 +84,22 @@ def get_nfcu_savings_transactions():
     df = pd.read_csv("data/processed/NFCU/NFCU Savings Transactions.csv")
     df = format_nfcu_checking_savings_tranaction_dataframe(df)
     return df
+
+
+# get Toyota dataframe functions
+def get_toyota_transaction_history():
+    df = pd.read_csv("data/processed/Toyota/Toyota Transaction History.csv")
+    df = format_toyota_transaction_dataframe(df)
+    return df
+
+def get_toyota_statemets():
+    df = pd.read_csv("data/processed/Toyota/Toyota Statements.csv")
+    df = format_toyota_statement_dataframe(df)
+    return df
+
+
+# get Wells Fargo Tesla dataframe function
+def get_wells_fargo_tesla_transaction_history():
+    df = pd.read_csv("data/processed/Wells Fargo Tesla/Tesla Transaction History.csv")
+    df = format_wells_fargo_tesla_transaction_dataframe(df)
+    return df
