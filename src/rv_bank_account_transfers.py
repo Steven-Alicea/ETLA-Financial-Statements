@@ -15,7 +15,7 @@ df_nfcu_checking = get_nfcu_checking_transactions()
 df_nfcu_savings = get_nfcu_savings_transactions()
 
 
-def main():
+def report_and_visualize_bank_account_transfers():
     transaction_dataframe_dict = {f"Chime Checking Transfers From {source_1} Totals": get_chime_checking_account_transfers(df_chime_checking, "from", source_1),
                                   f"Chime Checking Transfers To {destination_1} Totals": get_chime_checking_account_transfers(df_chime_checking, "to", destination_1),
                                   f"NFCU Checking Transfers From {source_1} Totals": get_nfcu_transfers(df_nfcu_checking, "from", source_1),
@@ -41,6 +41,10 @@ def main():
 
     # visualization (transaction x amount)
     generate_transfers_visualization(df, "Bank Account Transfers", "Transaction", "Amount")
+
+
+def main():
+    report_and_visualize_bank_account_transfers()
 
 
 if __name__ == '__main__':
