@@ -13,6 +13,9 @@ This project relies on the following packages:
 This project relies on the [Tabula](https://tabula.technology/) application for custom data extraction of bank and billing statements.
 
 ## Version History
+* 0.2
+    * ETL pipeline established for Toyota bank statements
+    * ETL pipeline established for Wells Fargo Auto
 * 0.1 (Initial Release)
     * ETL pipline established for Chime bank statements
     * ETL pipline established for NFCU bank statements
