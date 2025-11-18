@@ -2,6 +2,27 @@ import pandas as pd
 
 
 
+def drop_duplicate_header_rows(df):
+    df = df[(df["Date"] != "Date") & (df["Status"] != "Status") & (df["Amount"] != "Amount")]
+    return df
+
+def correct_mismatch_rows(df):
+    for i in range(len(df)):
+        if df.isnull().iloc[i, 0]:
+            df.iloc[i - 1, 1] = df.iloc[i - 1, 1] + " " + df.iloc[i, 1]
+    df = df.dropna(subset=["Date"])
+    return df
+
+def transform_toyota_transactions(df):
+    df.rename(columns={"Date": "Transaction Date"}, inplace=True)
+    df["Transaction Date"] = pd.to_datetime(df["Transaction Date"], format='%b %d, %Y')
+    df["Status"] = df["Status"].astype("string")
+    df["Amount"] = pd.to_numeric(df["Amount"]
+                                 .str.replace(r'[$,]', '', regex=True)
+                                 .str.replace(r'^(.*)-$', r'-\1', regex=True)
+                                 ).apply(lambda x: f"{x:.2f}")
+    return df
+
 def transform_toyota_statements(df):
     df.rename(columns={"Outstanding Balance*": "Outstanding Balance"}, inplace=True)
     df["Statement Date"] = pd.to_datetime(df["Statement Date"], format='%m/%d/%Y')
