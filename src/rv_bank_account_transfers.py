@@ -20,8 +20,8 @@ def report_and_visualize_bank_account_transfers():
                                   f"Chime Checking Transfers To {destination_1} Totals": get_chime_checking_account_transfers(df_chime_checking, "to", destination_1),
                                   f"NFCU Checking Transfers From {source_1} Totals": get_nfcu_transfers(df_nfcu_checking, "from", source_1),
                                   f"NFCU Checking Transfers To {destination_1} Totals": get_nfcu_transfers(df_nfcu_checking, "to", destination_1),
-                                  f"NFCU Saving Transfers From {source_1} Totals": get_nfcu_transfers(df_nfcu_savings, "from", source_1),
-                                  f"NFCU Saving Transfers To {destination_1} Totals": get_nfcu_transfers(df_nfcu_savings, "to", destination_1),
+                                  f"NFCU Savings Transfers From {source_1} Totals": get_nfcu_transfers(df_nfcu_savings, "from", source_1),
+                                  f"NFCU Savings Transfers To {destination_1} Totals": get_nfcu_transfers(df_nfcu_savings, "to", destination_1),
                                   f"NFCU Zelle Transfers From {source_2} Totals": get_nfcu_zelle_transfers(df_nfcu_checking, "from", source_2)}
     
     for key in transaction_dataframe_dict:
