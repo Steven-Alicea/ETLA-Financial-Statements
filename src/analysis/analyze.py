@@ -23,6 +23,12 @@ def get_transactions_on_date(df, date):
     print_analysis(df, title)
     return df
 
+def get_transactions_on_post_date(df, date):
+    title = f"Transactions on Post {date}"
+    df =  df[(df["Post Date"] == date)]
+    print_analysis(df, title)
+    return df
+
 def get_transactions_for_dates(df, start_date, end_date):
     if start_date and end_date:
         df = df[(df["Transaction Date"] >= start_date) & (df["Transaction Date"] <= end_date)]
@@ -30,6 +36,15 @@ def get_transactions_for_dates(df, start_date, end_date):
         df = df[(df["Transaction Date"] >= start_date)]
     elif not start_date and end_date:
         df = df[(df["Transaction Date"] <= end_date)]
+    return df
+
+def get_transactions_for_post_dates(df, start_date, end_date):
+    if start_date and end_date:
+        df = df[(df["Post Date"] >= start_date) & (df["Post Date"] <= end_date)]
+    elif start_date and not end_date:
+        df = df[(df["Post Date"] >= start_date)]
+    elif not start_date and end_date:
+        df = df[(df["Post Date"] <= end_date)]
     return df
 
 def get_transactions_by_description(df, description, start_date=None, end_date=None):
