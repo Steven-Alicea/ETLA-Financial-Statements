@@ -3,8 +3,11 @@ import pandas as pd
 
 
 def transform_wells_fargo_tesla(df):
-    date_columns = ["Posting Date", "Next Due Date"]
-    numeric_columns = ["Transaction Amount", 
+    df.rename(columns={"Posting Date": "Post Date"}, inplace=True)
+    df.rename(columns={"Transaction Description": "Description"}, inplace=True)
+    df.rename(columns={"Transaction Amount": "Amount"}, inplace=True)
+    date_columns = ["Post Date", "Next Due Date"]
+    numeric_columns = ["Amount", 
                        "Principal",
                        "Interest", 
                        "CPI", 
