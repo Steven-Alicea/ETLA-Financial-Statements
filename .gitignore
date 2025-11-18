@@ -322,3 +322,38 @@ data/reports/Transfers Combined.csv
 data/visualizations/Bank Account Transfers (Account x Amount).png
 data/visualizations/Bank Account Transfers (Transaction x Amount).png
 data/visualizations/Bank Account Transfers.png
+data/raw/Toyota/Statements/2020/tabula-2020-10-30.csv
+data/raw/Toyota/Statements/2020/tabula-2020-11-27.csv
+data/raw/Toyota/Statements/2021/tabula-2021-01-08.csv
+data/raw/Toyota/Statements/2021/tabula-2021-02-10.csv
+data/raw/Toyota/Statements/2021/tabula-2021-03-10.csv
+data/raw/Toyota/Statements/2021/tabula-2021-04-09.csv
+data/raw/Toyota/Statements/2021/tabula-2021-05-10.csv
+data/raw/Toyota/Statements/2021/tabula-2021-06-10.csv
+data/raw/Toyota/Statements/2021/tabula-2021-07-09.csv
+data/raw/Toyota/Statements/2021/tabula-2021-08-10.csv
+data/raw/Toyota/Statements/2021/tabula-2021-09-10.csv
+data/raw/Toyota/Statements/2021/tabula-2021-10-08.csv
+data/raw/Toyota/Statements/2021/tabula-2021-11-10.csv
+data/raw/Toyota/Statements/2021/tabula-2021-12-10.csv
+data/raw/Toyota/Statements/2022/tabula-2022-01-10.csv
+data/raw/Toyota/Statements/2022/tabula-2022-02-10.csv
+data/raw/Toyota/Statements/2022/tabula-2022-03-10.csv
+data/raw/Toyota/Statements/2022/tabula-2022-04-08.csv
+data/raw/Toyota/Statements/2022/tabula-2022-05-10.csv
+data/raw/Toyota/Statements/2022/tabula-2022-06-10.csv
+data/raw/Toyota/Statements/2022/tabula-2022-07-08.csv
+data/raw/Toyota/Statements/2022/tabula-2022-08-10.csv
+data/raw/Toyota/Statements/2022/tabula-2022-09-09.csv
+data/raw/Toyota/Statements/2022/tabula-2022-10-10.csv
+data/raw/Toyota/Statements/2022/tabula-2022-11-10.csv
+data/raw/Toyota/Statements/2022/tabula-2022-12-09.csv
+data/raw/Toyota/Statements/2023/tabula-2023-01-10.csv
+data/raw/Toyota/Statements/2023/tabula-2023-04-10.csv
+data/raw/Toyota/Statements/2023/tabula-2023-05-10.csv
+data/raw/Toyota/Statements/2023/tabula-2023-06-09.csv
+data/raw/Toyota/Statements/2023/tabula-2023-07-10.csv
+data/raw/Toyota/Statements/2023/tabula-2023-08-10.csv
+data/raw/Toyota/Statements/2023/tabula-2023-09-08.csv
+data/processed/Toyota/Toyota Statements.csv
+src/etl/transform/__pycache__/transform_toyota.cpython-313.pyc
