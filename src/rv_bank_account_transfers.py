@@ -10,9 +10,9 @@ from src.personal_identifying_information import *
 
 
 
-df_chime_checking = get_chime_checking_transactions()
-df_nfcu_checking = get_nfcu_checking_transactions()
-df_nfcu_savings = get_nfcu_savings_transactions()
+df_chime_checking = get_chime_checking_transactions_csv()
+df_nfcu_checking = get_nfcu_checking_transactions_csv()
+df_nfcu_savings = get_nfcu_savings_transactions_csv()
 
 
 def report_and_visualize_bank_account_transfers():
