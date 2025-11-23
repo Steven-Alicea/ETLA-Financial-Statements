@@ -1,50 +1,104 @@
-from analysis.analyze_helpers import *
+from src.analysis.analyze_helpers import *
 
 
 
 def get_transactions_for_exact_amount(df, amount):
-    title = f"Transactions for {amount}"
-    df =  df[(df["Amount"] == amount)]
+    title = f"Transactions For ${amount}"
+    df =  df[df["Amount"] == amount]
     print_analysis(df, title)
     return df
 
-def get_transactions_for_amounts(df, lower_amount, upper_amount):
-    if lower_amount and upper_amount:
+def get_transactions_less_than_amount(df, amount, inclusive=False):
+    title = f"Transactions Less Than ${amount}"
+    if inclusive:
+        df = df[df["Amount"] <= amount]
+    else:
+        df = df[df["Amount"] < amount]
+    print_analysis(df, title)
+    return df
+
+def get_transactions_greater_than_amount(df, amount, inclusive=False):
+    title = f"Transactions Greater Than ${amount}"
+    if inclusive:
+        df = df[df["Amount"] >= amount]
+    else:
+        df = df[df["Amount"] > amount]
+    print_analysis(df, title)
+    return df
+
+def get_transactions_between_amounts(df, lower_amount, upper_amount, inclusive=False):
+    title = f"Transactions Between ${lower_amount} And ${upper_amount}"
+    if inclusive:
         df = df[(df["Amount"] >= lower_amount) & (df["Amount"] <= upper_amount)]
-    elif lower_amount and not upper_amount:
-        df = df[(df["Amount"] >= lower_amount)]
-    elif not lower_amount and lower_amount:
-        df = df[(df["Amount"] <= upper_amount)]
+    else:
+        df = df[(df["Amount"] > lower_amount) & (df["Amount"] < upper_amount)]
+    print_analysis(df, title)
     return df
 
 def get_transactions_on_date(df, date):
-    title = f"Transactions on {date}"
-    df =  df[(df["Transaction Date"] == date)]
+    title = f"Transactions On {date}"
+    df =  df[df["Transaction Date"] == date]
+    print_analysis(df, title)
+    return df
+
+def get_transactions_before_date(df, date, inclusive=False):
+    title = f"Transactions Before {date}"
+    if inclusive:
+        df = df[df["Transaction Date"] >= date]
+    else:
+        df = df[df["Transaction Date"] > date]
+    print_analysis(df, title)
+    return df
+
+def get_transactions_after_date(df, date, inclusive=False):
+    title = f"Transactions After {date}"
+    if inclusive:
+        df =  df[df["Transaction Date"] >= date]
+    else:
+        df =  df[df["Transaction Date"] > date]
+    print_analysis(df, title)
+    return df
+
+def get_transactions_between_dates(df, start_date, end_date, inclusive=False):
+    title = f"Transactions Between {start_date} And {end_date}"
+    if inclusive:
+        df = df[(df["Transaction Date"] >= start_date) & (df["Transaction Date"] <= end_date)]
+    else:
+        df = df[(df["Transaction Date"] > start_date) & (df["Transaction Date"] < end_date)]
     print_analysis(df, title)
     return df
 
 def get_transactions_on_post_date(df, date):
-    title = f"Transactions on Post {date}"
-    df =  df[(df["Post Date"] == date)]
+    title = f"Transactions On Post {date}"
+    df =  df[df["Post Date"] == date]
     print_analysis(df, title)
     return df
 
-def get_transactions_for_dates(df, start_date, end_date):
-    if start_date and end_date:
-        df = df[(df["Transaction Date"] >= start_date) & (df["Transaction Date"] <= end_date)]
-    elif start_date and not end_date:
-        df = df[(df["Transaction Date"] >= start_date)]
-    elif not start_date and end_date:
-        df = df[(df["Transaction Date"] <= end_date)]
+def get_transactions_before_post_date(df, date, inclusive=False):
+    title = f"Transactions Posted Before {date}"
+    if inclusive:
+        df =  df[df["Post Date"] <= date]
+    else:
+        df =  df[df["Post Date"] < date]
+    print_analysis(df, title)
     return df
 
-def get_transactions_for_post_dates(df, start_date, end_date):
-    if start_date and end_date:
+def get_transactions_after_post_date(df, date, inclusive=False):
+    title = f"Transactions Posted After {date}"
+    if inclusive:
+        df =  df[df["Post Date"] >= date]
+    else:
+        df =  df[df["Post Date"] > date]
+    print_analysis(df, title)
+    return df
+
+def get_transactions_between_post_dates(df, start_date, end_date, inclusive=False):
+    title = f"Transactions Posted Between {start_date} And {end_date}"
+    if inclusive:
         df = df[(df["Post Date"] >= start_date) & (df["Post Date"] <= end_date)]
-    elif start_date and not end_date:
-        df = df[(df["Post Date"] >= start_date)]
-    elif not start_date and end_date:
-        df = df[(df["Post Date"] <= end_date)]
+    else:
+        df = df[(df["Post Date"] > start_date) & (df["Post Date"] < end_date)]
+    print_analysis(df, title)
     return df
 
 def get_transactions_by_description(df, description, start_date=None, end_date=None):
