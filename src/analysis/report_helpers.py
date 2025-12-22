@@ -11,7 +11,8 @@ def write_totals_to_csv(csv_file, count_total, amount_total):
 
 def format_dataframe_for_totals_report(df, currency=None):
     if currency:
-        df.loc[:, "Amount"] = '$' + df["Amount"].astype("string")
+        # df.loc[:, "Amount"] = '$' + df["Amount"].astype("string")
+        df.loc[:, "Amount"] = df["Amount"].apply(lambda x: f"${x:,.2f}")
     else:
         df = df[["Statement Period", "Transaction Date", "Description", "Amount"]]
         df.loc[:, "Amount"] = df["Amount"].abs()
@@ -22,4 +23,4 @@ def get_total_count(df):
     return [f"Total Transactions", len(df)]
 
 def get_total_amount(df):
-    return [f"Total Amount", f"${df["Amount"].sum()}"] 
+    return [f"Total Amount", "${:,.2f}".format(df["Amount"].sum())] 

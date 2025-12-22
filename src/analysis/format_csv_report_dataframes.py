@@ -56,7 +56,7 @@ def format_csv_report(df):
             df[column] = df[column].apply(lambda x: pd.to_datetime(x))
     for column in decimal_columns:
         if column in df.columns:
-            df[column] = pd.to_numeric(df[column].str.replace('$', ''))
+            df[column] = pd.to_numeric(df[column].str.replace('[\$,]', '', regex=True))
     for column in string_columns:
         if column in df.columns:
             df[column] = df[column].astype("string")
