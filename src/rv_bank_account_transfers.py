@@ -1,4 +1,6 @@
 import pandas as pd
+import os
+from dotenv import load_dotenv
 from src.analysis.get_csv_dataframes import *
 from src.analysis.get_csv_report_dataframe import *
 from src.analysis.analyze import *
@@ -6,9 +8,14 @@ from src.analysis.analyze_chime import *
 from src.analysis.analyze_nfcu import *
 from src.analysis.report_analysis_totals import *
 from src.analysis.transfers_visualization import *
-from src.personal_identifying_information import *
 
 
+
+load_dotenv()
+
+source_1 = os.getenv("SOURCE_1")
+source_2 = os.getenv("SOURCE_2")
+destination_1 = os.getenv("DESTINATION_1")
 
 df_chime_checking = get_chime_checking_transactions_csv()
 df_nfcu_checking = get_nfcu_checking_transactions_csv()
