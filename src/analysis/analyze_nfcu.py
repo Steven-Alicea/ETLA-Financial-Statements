@@ -31,3 +31,15 @@ def get_nfcu_zelle_transfers(df, direction, source_or_destination, start_date=No
     title = rename_title_for_dates(title, start_date, end_date)
     print_analysis(df, title)
     return df
+
+def get_nfcu_cash_withdrawals(df):
+    title = "NFCU Cash Withdrawals"
+    df = df[df["Description"].str.contains("Cash Withdrawal", case=False)]
+    print_analysis(df, title)
+    return df
+
+def get_nfcu_atm_withdrawals(df):
+    title = "NFCU ATM Withdrawals"
+    df = df[df["Description"].str.contains("ATM Withdrawal", case=False)]
+    print_analysis(df, title)
+    return df
