@@ -43,3 +43,9 @@ def get_nfcu_atm_withdrawals(df):
     df = df[df["Description"].str.contains("ATM Withdrawal", case=False)]
     print_analysis(df, title)
     return df
+
+def get_nfcu_credit_statement_on_date(df, date):
+    title = f"NFCU Credit Statement on {date}"
+    df = df[df["Statement Closing Date"] == date]
+    print_analysis(df, title)
+    return df
