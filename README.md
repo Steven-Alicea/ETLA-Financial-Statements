@@ -13,6 +13,10 @@ This project relies on the following packages:
 This project relies on the [Tabula](https://tabula.technology/) application for custom data extraction of bank and billing statements.
 
 ## Version History
+* 0.3
+    * Introduce environment variables to safeguard PII (personal Identifying Information)
+    * Generate CSV payment history report for Toyota vehicle
+    * Generate CSV payment history reports for two Tesla vehicles
 * 0.2
     * ETL pipeline established for Toyota bank statements
     * ETL pipeline established for Wells Fargo Auto
